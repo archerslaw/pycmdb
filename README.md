@@ -16,8 +16,7 @@ https://www.djangoproject.com/download/
 \# python manager runserver $host\_ip:$port
 
 #### How to post the data to CMDB:
+\# cd pycmdb
+
 \# python post_hardwave_and_softwave_infos_to_cmdb.py     
-Get the hardwave and softwave infos from host:            
-----------------------------------------------------------
-Post the hardwave and softwave infos to CMDB successfully!
 
