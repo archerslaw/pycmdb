@@ -14,7 +14,7 @@ def getIfconfig():
              
 def parserIfconfig(stdout):
     groups = [i for i in stdout.split('\n\n') if i and not i.startswith('lo')]
-    ifname = re.compile(r'^(switch)')       #(r'^(eth\d:?\d?)')
+    ifname = re.compile(r'^(wlan0)')       #(r'^(eth\d:?\d?)')
     macaddr = re.compile(r'.*HWaddr\s+([0-9a-fA-F:]{17})')
     ipaddr = re.compile(r'.*inet addr:+([\d.]{7,15})')
     result = []
@@ -79,9 +79,10 @@ def parserCpu(stdout):
     return cpu_info
 
 def postData(data):
-    info = urllib.urlencode(data)
-    req = urllib2.urlopen('http://127.0.0.1:8000/api/collect',info)
+    postdata = urllib.urlencode(data)
+    req = urllib2.urlopen('http://192.168.3.121:8000/api/collect',postdata)
     req.read()
+    return True
 
 def main():
     data_info = {}
@@ -93,7 +94,7 @@ def main():
         if 'ifname' in x:
             data_info['ipaddrs'] = x['ipaddr']
     
-    memtotal = round(int(getMemTotal())/1024.0/1024.0, 0)
+    memtotal = int(round(int(getMemTotal())/1024.0/1024.0, 0))
     data_info['memory'] = memtotal
     #print memtotal
     
@@ -126,5 +127,7 @@ if __name__ == "__main__":
     print result
     print '----------------------------------------------------------'
     postData(result)
+    #postdata = urllib.urlencode(result)
+    #urllib2.urlopen('http://192.168.3.121:8000/api/collect',postdata).read()
     print 'Post the hardwave and softwave infos to CMDB successfully!'
 
