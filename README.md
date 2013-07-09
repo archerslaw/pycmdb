@@ -18,7 +18,6 @@ https://www.djangoproject.com/download/
 #### How to post the data to CMDB:
 \# python post_hardwave_and_softwave_infos_to_cmdb.py     
 Get the hardwave and softwave infos from host:            
-\{\'product\'\: \'ThinkPad X220\', \'vendor\': \'LENOVO\', \'cpu\_num\': 4, \'ipaddrs\': \'10.66.65.102\', \'hostname\': \'dhcp-65-102.nay.redhat.com\', \'cpu\_model\': \'GenuineIntel\', \'osver\': \'Fedora 16 Verne x86\_64\', \'sn\': \'R9NBEZA\', \'memory\': 4\}
 ----------------------------------------------------------
 Post the hardwave and softwave infos to CMDB successfully!
 
