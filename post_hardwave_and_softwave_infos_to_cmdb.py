@@ -102,7 +102,6 @@ def main():
     data_info['cpu_num'] = int(cpuinfo['processor']) + 1
     data_info['cpu_model'] = cpuinfo['vendor_id']
     #print cpuinfo['processor']
-    #print cpuinfo['processor']
 
     data_info['sn'] = parserDMI(getDMI())['Serial Number']
     data_info['vendor'] = parserDMI(getDMI())['Manufacturer']
@@ -126,7 +125,7 @@ if __name__ == "__main__":
     print 'Get the hardwave and softwave infos from host:'
     print result
     print '----------------------------------------------------------'
-    postData(result)
+    #postData(result)
     #postdata = urllib.urlencode(result)
     #urllib2.urlopen('http://192.168.3.121:8000/api/collect',postdata).read()
     print 'Post the hardwave and softwave infos to CMDB successfully!'
