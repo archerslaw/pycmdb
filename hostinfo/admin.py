@@ -1,4 +1,4 @@
-from models import Host, Ipaddr
+from models import Host, Ipaddr, HostGroup
 from django.contrib import admin
 
 class HostAdmin(admin.ModelAdmin):
@@ -15,6 +15,10 @@ class HostAdmin(admin.ModelAdmin):
 class IpaddrAdmin(admin.ModelAdmin):
     list_display = ['ipaddr', 'host']
 
+class HostGroupAdmin(admin.ModelAdmin):
+    list_display = ['name',]
+ 
 admin.site.register(Host, HostAdmin)
 admin.site.register(Ipaddr, IpaddrAdmin)
+admin.site.register(HostGroup, HostGroupAdmin)
 
