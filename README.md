@@ -20,3 +20,10 @@ https://www.djangoproject.com/download/
 
 \# python post_hardwave_and_softwave_infos_to_cmdb.py     
 
+#### Automatically got the Configuration of Nagios hosts and services:
+\# nagios_configure_generate.py
+
+#### Automatic charting via NagiosGrapher:
+\# yum install nagios (nagios-3.4.4-1.fc16.x86_64)
+...
+
