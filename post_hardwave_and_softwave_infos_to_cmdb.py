@@ -69,7 +69,6 @@ def getCpu():
      
 def parserCpu(stdout):
     groups = [i for i in stdout.split('\n\n')]
-    #print groups
     group = groups[-2]
     cpu_list = [ i for i in group.split('\n')]
     cpu_info = {}
@@ -80,7 +79,7 @@ def parserCpu(stdout):
 
 def postData(data):
     postdata = urllib.urlencode(data)
-    req = urllib2.urlopen('http://192.168.3.121:8000/api/collect',postdata)
+    req = urllib2.urlopen('http://192.168.0.111:8000/api/collect',postdata)
     req.read()
     return True
 
@@ -96,12 +95,10 @@ def main():
     
     memtotal = int(round(int(getMemTotal())/1024.0/1024.0, 0))
     data_info['memory'] = memtotal
-    #print memtotal
     
     cpuinfo = parserCpu(getCpu())
     data_info['cpu_num'] = int(cpuinfo['processor']) + 1
     data_info['cpu_model'] = cpuinfo['vendor_id']
-    #print cpuinfo['processor']
 
     data_info['sn'] = parserDMI(getDMI())['Serial Number']
     data_info['vendor'] = parserDMI(getDMI())['Manufacturer']
@@ -109,7 +106,6 @@ def main():
     
     os_version = [i for i in platform.linux_distribution()]
     os_version.append(platform.machine())
-    #print os_version
     os_ver = ''
     for x in os_version:
         os_ver += x
@@ -125,8 +121,6 @@ if __name__ == "__main__":
     print 'Get the hardwave and softwave infos from host:'
     print result
     print '----------------------------------------------------------'
-    #postData(result)
-    #postdata = urllib.urlencode(result)
-    #urllib2.urlopen('http://192.168.3.121:8000/api/collect',postdata).read()
+    postData(result)
     print 'Post the hardwave and softwave infos to CMDB successfully!'
 
