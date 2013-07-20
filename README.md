@@ -27,3 +27,9 @@ https://www.djangoproject.com/download/
 \# yum install nagios (nagios-3.4.4-1.fc16.x86_64)
 ...
 
+#### How to start/stop Nagios.
+\# /usr/bin/nagiostats -v /etc/nagios/nagios.cfg
+\# /etc/rc.d/init.d/nagios start
+\# /etc/rc.d/init.d/nagios restart
+\# kill -HUP `pidof nagios`
+
