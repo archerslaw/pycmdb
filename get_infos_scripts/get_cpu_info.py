@@ -7,6 +7,7 @@ def getCpuInfo():
     p = Popen(['cat','/proc/cpuinfo'],shell=False,stdout=PIPE)
     stdout, stderr = p.communicate()
     return stdout.strip()
+    
 def parserCpuInfo(cpudata):
     pd = {}
     model_name = re.compile(r'.*model name\s+:\s(.*)')
@@ -26,6 +27,7 @@ def parserCpuInfo(cpudata):
         else:
             pd['Cpu_Cores'] = int('1')
     return pd
+    
 if __name__ == '__main__':
     cpudata = getCpuInfo()
     print parserCpuInfo(cpudata)
