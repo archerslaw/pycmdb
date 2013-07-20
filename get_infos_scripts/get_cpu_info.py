@@ -3,6 +3,7 @@
 
 from subprocess import PIPE,Popen
 import re
+
 def getCpuInfo():
     p = Popen(['cat','/proc/cpuinfo'],shell=False,stdout=PIPE)
     stdout, stderr = p.communicate()
