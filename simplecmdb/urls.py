@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^api/collect$', 'hostinfo.views.collect'),
+    url(r'^api/gethostbyident$', 'hostinfo.views.getHostByIdentity'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/gethosts\.json$', 'hostinfo.views.gethostsjson'),
     url(r'^api/gethosts\.txt$', 'hostinfo.views.gethoststxt'),
