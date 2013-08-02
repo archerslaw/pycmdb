@@ -12,6 +12,8 @@ class Host(models.Model):
     cpu_num = models.IntegerField(max_length = 4)
     memory = models.IntegerField(max_length = 8)
     sn = models.CharField(max_length = 30)
+    identity = models.CharField(max_length = 32)
+    #ipaddr = models.IPAddressField(max_length = 15)
     def __unicode__(self):
         return self.hostname 
     """
@@ -19,13 +21,13 @@ class Host(models.Model):
         super(Host, self).__init__()"""
 
 class Ipaddr(models.Model):
-    ipaddr = models.IPAddressField()
+    ipaddr = models.IPAddressField(max_length = 15)
     host = models.ForeignKey('Host')
-    """
-    def __init__(self):
+    """def __init__(self):
         super(Ipaddr, self).__init__()"""
 
 class HostGroup(models.Model):
     name = models.CharField(max_length = 30)
     members = models.ManyToManyField(Host)
-
+    def __unicode__(self):
+         return self.name

@@ -9,7 +9,8 @@ class HostAdmin(admin.ModelAdmin):
             'cpu_num',
             'sn',
             'memory',
-            'hostname'
+            'hostname',
+            'identity'
             ]
 
 class IpaddrAdmin(admin.ModelAdmin):
